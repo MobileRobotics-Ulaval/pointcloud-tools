@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<package>
+  <name>pointcloud-tools</name>
+  <version>0.0.0</version>
+  <description>The pointcloud-tools package</description>
+  <maintainer email="davidlandry93@gmail.com">David Landry</maintainer>
+  <license>TODO</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>pointmatcher_ros</build_depend>
+  <run_depend>pointmatcher_ros</run_depend>
+</package>
