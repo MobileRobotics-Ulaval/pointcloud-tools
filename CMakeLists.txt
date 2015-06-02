@@ -1,11 +1,12 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(pointcloud-tools)
+project(pointcloud_tools)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   pointmatcher_ros
+  sensor_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -90,8 +91,8 @@ catkin_package(
 
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
-# include_directories(include)
 include_directories(
+  include
   ${catkin_INCLUDE_DIRS}
 )
 
@@ -100,17 +101,11 @@ include_directories(
 #   src/${PROJECT_NAME}/pointcloud-tools.cpp
 # )
 
-## Declare a cpp executable
-# add_executable(pointcloud-tools_node src/pointcloud-tools_node.cpp)
-
-## Add cmake target dependencies of the executable/library
-## as an example, message headers may need to be generated before nodes
-# add_dependencies(pointcloud-tools_node pointcloud-tools_generate_messages_cpp)
-
-## Specify libraries to link a library or executable target against
-# target_link_libraries(pointcloud-tools_node
-#   ${catkin_LIBRARIES}
-# )
+add_executable(cloud_recorder 
+    src/cloud_recorder_node.cpp 
+    src/CloudRecorder.cpp
+    include/pointcloud_tools/CloudRecorder.h)
+target_link_libraries(cloud_recorder ${catkin_LIBRARIES})
 
 #############
 ## Install ##
