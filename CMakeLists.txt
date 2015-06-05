@@ -9,22 +9,10 @@ find_package(catkin REQUIRED COMPONENTS
   pointmatcher_ros
   std_msgs
   sensor_msgs
-  message_generation
+  pcl_ros
 )
 
 find_package(PCL REQUIRED COMPONENTS io)
-
-add_service_files(
-    FILES
-    CloudRecorder.srv
-)
-
-generate_messages(
-    DEPENDENCIES
-    sensor_msgs
-    std_msgs
-)
-
 
 ###################################
 ## catkin specific configuration ##
@@ -59,9 +47,9 @@ add_definitions(${PCL_DEFINITIONS})
 
 add_executable(cloud_recorder 
     src/cloud_recorder.cpp 
-    src/CloudRecorderService.cpp
-    include/pointcloud_tools/CloudRecorderService.h)
-target_link_libraries(cloud_recorder ${catkin_LIBRARIES} ${PCL_IO_LIBRARIES})
+    src/CloudRecorder.cpp
+    include/pointcloud_tools/CloudRecorder.h)
+target_link_libraries(cloud_recorder ${catkin_LIBRARIES} ${PCL_LIBRARIES})
 
 #############
 ## Install ##
