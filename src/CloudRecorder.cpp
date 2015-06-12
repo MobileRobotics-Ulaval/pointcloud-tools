@@ -7,6 +7,14 @@ CloudRecorder::CloudRecorder(ros::NodeHandle n)
     std::string sourceTopicName;
     republish = false;
 
+    std::string workingDirectory;
+    n.getParam(WORKING_DIRECTORY_PARAM, workingDirectory);
+
+    if(chdir(workingDirectory.c_str()) != 0)
+    {
+        ROS_WARN("Could not switch to demanded directory. Using CWD instead.");
+    };
+
     if(!n.getParam(SOURCE_TOPIC_PARAM, sourceTopicName))
     {
         ROS_ERROR("You must specify a source topic.");

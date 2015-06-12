@@ -21,6 +21,7 @@
 #define DEST_TOPIC_PARAM "republish"
 #define SOURCE_TOPIC_PARAM "source"
 #define TARGET_FRAME_PARAM "target_frame"
+#define WORKING_DIRECTORY_PARAM "working_directory"
 #define DEFAULT_FORMAT "vtk"
 
 
